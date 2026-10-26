@@ -8,7 +8,7 @@
 ## 📚 Obsah repozitáře
 
 ### 1. [☁️ AZURE.md](./AZURE.md)
-* **Student vs Standard:** Účet bez platební karty (100 $/rok) vs 30denní trial (200 $ kredit + 12 měsíců free).
+* **Student vs Standard:** Účet bez platební karty (100 $/rok jednorázově, ne měsíčně; B1s server nečerpá kredit) vs 30denní trial (200 $ kredit + 12 měsíců free).
 * **B1s Server:** Konfigurace krok za krokem (Linux, SSH, 64 GB P6 SSD).
 * **SWAP:** Nastavení 2 GB virtuální paměti pro 1 GB RAM.
 * **Pasti na peníze:** Osiřelé disky, zapomenuté IP, limit 750 hodin, CPU throttling.

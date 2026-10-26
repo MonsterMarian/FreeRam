@@ -9,10 +9,13 @@
 
 * **Azure for Students:**
   * Odkaz: [azure.microsoft.com/free/students](https://azure.microsoft.com/free/students/)
-  * **Karta:** Není potřeba (žádné riziko stržení peněz).
-  * **Kredit:** 100 USD na 12 měsíců.
-  * **Obnova:** Každý rok studia.
-  * **Podmínka:** Školní e-mail (.edu, univerzitní, ISIC).
+  * **Kreditní karta:** Není potřeba (nulové finanční riziko).
+  * **Kredit:** **100 USD na ROK** (jednorázově na 12 měsíců, NE měsíčně).
+  * **Čerpání kreditu:** B1s server běží zdarma z bezplatné kvóty (750 h/měsíc) – z kreditu 100 USD **neubírá nic**.
+  * **Využití 100 USD:** Rezerva na silnější testovací stroje (např. 16 GB RAM na pár dní).
+  * **Vyčerpání kreditu:** Služby se pouze zastaví. Nikdy se nic nestrhne.
+  * **Obnova:** Každých 12 měsíců re-verifikace školního mailu ➔ načte se dalších 100 USD.
+  * **Podmínka:** Školní e-mail (.edu, univerzitní nebo ISIC).
 
 * **Azure Free Trial:**
   * Odkaz: [azure.microsoft.com/free](https://azure.microsoft.com/free)
