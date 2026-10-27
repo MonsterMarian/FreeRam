@@ -9,6 +9,7 @@
 
 ### 1. [AZURE.md](./AZURE.md)
 * **Student vs Standard:** Účet bez platební karty (100 $/rok) vs 30denní trial (200 $ kredit + 12 měsíců free).
+* **Co získáš:** 2 vCPU, 1 GB RAM, 2× 64 GB SSD, 15 GB přenosu, DB a další služby na 12 měsíců.
 * **Free VM:** `B2ats_v2` / `B2pts_v2` v **Sweden Central** – portál i CLI, se screenshoty.
 * **Chyby:** `NotAvailableForSubscription` (Microsoft.Compute, zakázané regiony), `AllocationFailed`.
 * **SWAP:** Nastavení 2 GB virtuální paměti pro 1 GB RAM.

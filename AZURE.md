@@ -20,7 +20,41 @@
 
 ---
 
-## 2. Co je opravdu zdarma
+## 2. Co získáš (parametry)
+
+* **Kredit:** 200 USD (~176 €) na 30 dní – na cokoliv placeného.
+* **Server (VM) – 12 měsíců, 750 h/měsíc = 1 server nonstop:**
+  * Velikost: `Standard_B2pts_v2` (ARM64) nebo `Standard_B2ats_v2` (x64, AMD).
+  * CPU: 2 vCPU, burstable (plný výkon jen nárazově).
+  * RAM: 1 GB (reálně ~950 MB pro systém → nutný swap).
+  * OS: libovolný Linux (Ubuntu 22.04/24.04), plný root (`sudo`).
+  * Výkon disků VM: max 3 750 IOPS, 85 MB/s, až 4 datové disky.
+  * Síť: 1 veřejná IPv4, přístup přes SSH.
+* **Disky – 12 měsíců:**
+  * 2× 64 GB Premium SSD (P6) – 1 na systém, 1 volný na data.
+  * P6: 240 IOPS, 50 MB/s (krátkodobě burst víc).
+  * Reálně po instalaci Ubuntu: ~61 GB volných.
+* **Přenos dat:** 15 GB odchozích/měsíc (příchozí vždy zdarma).
+* **Další služby zdarma 12 měsíců** (dle stránky Bezplatné služby):
+  * Windows VM: 750 h (B2pts v2 / B2ats v2).
+  * MySQL Flexible Server: 750 h (B1MS) + 32 GB úložiště + 32 GB zálohy.
+  * PostgreSQL Flexible Server: 750 h (B1MS) + 32 GB úložiště + 32 GB zálohy.
+  * Cosmos DB: 400 RU/s + 25 GB.
+  * Blob Storage: 5 GB (LRS hot).
+  * Azure Files: 100 GB.
+  * Archive Storage: 10 GB.
+  * Container Registry: 1× Standard (100 GB, 10 webhooků).
+  * Key Vault: 10 000 transakcí.
+  * Service Bus: 750 h, 13 mil. operací.
+  * Load Balancer: 750 h, 15 GB zpracovaných dat.
+  * VPN Gateway: 750 h (VpnGw1).
+  * SQL Managed Instance: 720 vCore hodin/měsíc.
+  * AI: Custom Vision 5 000 transakcí, Vision 10 000, Face 30 000, Document Intelligence 500 stránek.
+* **Limit vCPU:** 4 vCPU na region (trial kvóta).
+
+---
+
+## 3. Co je opravdu zdarma
 
 * VM: **`Standard_B2ats_v2`** (x64, AMD) nebo **`Standard_B2pts_v2`** (ARM).
   * 2 vCPU, 1 GB RAM.
@@ -33,7 +67,7 @@
 
 ---
 
-## 3. Než začneš: registrace Microsoft.Compute
+## 4. Než začneš: registrace Microsoft.Compute
 
 * Bez toho hlásí **`NotAvailableForSubscription`** všude.
 * [Předplatná](https://portal.azure.com/#view/Microsoft_Azure_Billing/SubscriptionsBlade) → *Azure subscription 1* → **Poskytovatelé prostředků**.
@@ -43,7 +77,7 @@
 
 ---
 
-## 4. Region
+## 5. Region
 
 * Většina EU regionů je pro trial **zablokovaná**:
   * North Europe, West Europe, Germany, France, UK, Norway, Poland, Switzerland, Italy.
@@ -61,7 +95,7 @@ az vm list-skus --all --resource-type virtualMachines \
 
 ---
 
-## 5. Vytvoření VM – portál
+## 6. Vytvoření VM – portál
 
 * Přímý odkaz: [Bezplatné služby](https://portal.azure.com/#blade/Microsoft_Azure_Billing/FreeServicesBlade)
   * NE přes „Virtuální počítače → Vytvořit“ – tlačí placené řady D/E/F (případně **Přeskočit tento krok**).
@@ -83,7 +117,7 @@ az vm list-skus --all --resource-type virtualMachines \
 
 ---
 
-## 6. Vytvoření VM – CLI (rychlejší, žádné klikání)
+## 7. Vytvoření VM – CLI (rychlejší, žádné klikání)
 
 * Instalace (Windows): `winget install -e --id Microsoft.AzureCLI`
 * Přihlášení: `az login --use-device-code` → kód zadat na [login.microsoft.com/device](https://login.microsoft.com/device)
@@ -103,7 +137,7 @@ az vm create -g rg-free -n srv-free -l swedencentral \
 
 ---
 
-## 7. Chyba `AllocationFailed`
+## 8. Chyba `AllocationFailed`
 
 * = Microsoftu v regionu došel hardware. **Nastavení je OK.**
 * Vysvětlení: [aka.ms/allocation-guidance](http://aka.ms/allocation-guidance)
@@ -119,7 +153,7 @@ az vm create -g rg-free -n srv-free -l swedencentral \
 
 ---
 
-## 8. Hotovo – kontrola
+## 9. Hotovo – kontrola
 
 * [Virtuální počítače](https://portal.azure.com/#browse/Microsoft.Compute%2FVirtualMachines) → název serveru → **Přehled**.
 * Stav: **Spuštěné**.
@@ -137,7 +171,7 @@ ssh -i cesta/ke/klici.pem azureuser@<veřejná-IP>
 
 ---
 
-## 9. SWAP (nutné pro 1 GB RAM)
+## 10. SWAP (nutné pro 1 GB RAM)
 
 ```bash
 sudo fallocate -l 2G /swapfile
@@ -151,7 +185,7 @@ sudo sysctl -p
 
 ---
 
-## 10. Pasti na peníze
+## 11. Pasti na peníze
 
 * **Jen 1 VM nonstop** – 750 h = 1 server celý měsíc. Dva = půlka měsíce placená.
 * **Vypínat v portálu** (tlačítko Zastavit = *deallocated*). `sudo poweroff` = hodiny běží dál.
@@ -163,7 +197,7 @@ sudo sysctl -p
 
 ---
 
-## 11. Záchranná brzda: rozpočet 1 $
+## 12. Záchranná brzda: rozpočet 1 $
 
 * [Cost Management](https://portal.azure.com/#view/Microsoft_Azure_CostManagement/Menu/~/overview) → **Budgets** → **+ Add**.
 * Částka: **1**.
@@ -173,7 +207,7 @@ sudo sysctl -p
 
 ---
 
-## 12. Všechny odkazy
+## 13. Všechny odkazy
 
 * Registrace:
   * Free Trial: [azure.microsoft.com/free](https://azure.microsoft.com/free)
