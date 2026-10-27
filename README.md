@@ -8,10 +8,11 @@
 ## 📚 Obsah repozitáře
 
 ### 1. [☁️ AZURE.md](./AZURE.md)
-* **Student vs Standard:** Účet bez platební karty (100 $/rok jednorázově, ne měsíčně; B1s server nečerpá kredit) vs 30denní trial (200 $ kredit + 12 měsíců free).
-* **B1s Server:** Konfigurace krok za krokem (Linux, SSH, 64 GB P6 SSD).
+* **Student vs Standard:** Účet bez platební karty (100 $/rok) vs 30denní trial (200 $ kredit + 12 měsíců free).
+* **Free VM:** `B2ats_v2` / `B2pts_v2` v **Sweden Central** – portál i CLI, se screenshoty.
+* **Chyby:** `NotAvailableForSubscription` (Microsoft.Compute, zakázané regiony), `AllocationFailed`.
 * **SWAP:** Nastavení 2 GB virtuální paměti pro 1 GB RAM.
-* **Pasti na peníze:** Osiřelé disky, zapomenuté IP, limit 750 hodin, CPU throttling.
+* **Pasti na peníze:** Osiřelé disky, zapomenuté IP, limit 750 hodin, placená `B2ts_v2`.
 * **Záchranná brzda:** Nastavení Budget Alertu na 1 $ proti nechtěným platbám.
 
 ### 2. [🌐 WEBHOSTING.md](./WEBHOSTING.md)
