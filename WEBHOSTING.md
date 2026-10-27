@@ -1,4 +1,4 @@
-# 🌐 Webhosting & DNS – Manuál
+# Webhosting & DNS – Manuál
 
 > Vše o hostingu frontendu (Cloudflare Pages), DNS směrování (Český hosting), GitHub CI/CD a databázi.  
 > Formát: Odrážky. Minimum slov.
@@ -8,29 +8,29 @@
 ## 1. Výběr hostingu pro Frontend (React / Vite / Three.js)
 
 * **Render:**
-  * ❌ Usíná po 15 min nečinnosti (cold start trvá 50 sekund).
-  * ❌ Limit 750 hodin pro celý účet.
-  * ❌ Zbytečný běh virtuálního kontejneru pro statické soubory.
+  * Minus: Usíná po 15 min nečinnosti (cold start trvá 50 sekund).
+  * Minus: Limit 750 hodin pro celý účet.
+  * Minus: Zbytečný běh virtuálního kontejneru pro statické soubory.
 
 * **Koyeb:**
-  * ❌ Koupil ho Mistral AI ➔ zablokovaný dashboard a onboarding pro běžné weby.
+  * Minus: Koupil ho Mistral AI → zablokovaný dashboard a onboarding pro běžné weby.
 
 * **Vercel:**
-  * ⚠️ Často vyžaduje SMS verifikaci, blokuje některé české operátory.
+  * Pozor: Často vyžaduje SMS verifikaci, blokuje některé české operátory.
 
 * **Cloudflare Pages (Vítěz):**
-  * 🟢 100% trvale zdarma, bez kreditní karty a bez SMS.
-  * 🟢 **Nikdy neusíná (0 s cold start).**
-  * 🟢 Celosvětová CDN (bleskové stahování 3D modelů a Three.js textur).
-  * 🟢 Neomezený počet návštěv a přenesených dat.
-  * 🟢 Automatický SSL certifikát (HTTPS).
+  * Plus: 100% trvale zdarma, bez kreditní karty a bez SMS.
+  * Plus: **Nikdy neusíná (0 s cold start).**
+  * Plus: Celosvětová CDN (bleskové stahování 3D modelů a Three.js textur).
+  * Plus: Neomezený počet návštěv a přenesených dat.
+  * Plus: Automatický SSL certifikát (HTTPS).
 
 ---
 
 ## 2. Nasazení z GitHubu na Cloudflare Pages
 
-1. V Cloudflare menu: **Compute** ➔ **Workers & Pages**.
-2. Záložka **Pages** ➔ **Connect to Git**.
+1. V Cloudflare menu: **Compute** → **Workers & Pages**.
+2. Záložka **Pages** → **Connect to Git**.
 3. Vybrat repozitář (např. `MonsterMarian/Portfolio`).
 4. **Build konfigurace:**
    * **Framework preset:** `React (Vite)`
@@ -46,23 +46,23 @@
 Cíl: Propojit `www.marianvystavel.cz` s Cloudflare a `marianvystavel.cz` (bez www) přesměrovat na `www`.
 
 * **1. Propojení subdomény `www` (v Cloudflare):**
-  * Projekt ➔ *Custom domains* ➔ *Set up a custom domain*.
+  * Projekt → *Custom domains* → *Set up a custom domain*.
   * Zadat `www.marianvystavel.cz`.
-  * Zvolit **My DNS provider** ➔ **Begin CNAME setup**.
+  * Zvolit **My DNS provider** → **Begin CNAME setup**.
 
 * **2. Nastavení CNAME záznamu (na hosting.cz):**
-  * Sekce **CNAME záznamy** ➔ tužtička ✏️ u `www.marianvystavel.cz`.
+  * Sekce **CNAME záznamy** → tužka u `www.marianvystavel.cz`.
   * Typ: `CNAME`
   * Cíl: `portfolio-mo4.pages.dev` (tvoje Pages URL).
   * Uložit.
 
 * **3. Nastavení přesměrování pro verzi bez www (na hosting.cz):**
-  * Sekce **Alias, přesměrování** ➔ **Přesměrování webu**.
+  * Sekce **Alias, přesměrování** → **Přesměrování webu**.
   * Cílová URL: `https://www.marianvystavel.cz`
   * Typ: 301 trvalé.
 
 * **4. Nastavení A záznamu pro doménu bez www (na hosting.cz):**
-  * Sekce **A/AAAA záznamy** ➔ zelené tlačítko **+ Přidat A záznam**.
+  * Sekce **A/AAAA záznamy** → zelené tlačítko **+ Přidat A záznam**.
   * **(Sub)doména:** Nechat **ÚPLNĚ PRÁZDNÉ** (nevepisovat název domény, jinak vznikne duplikát!).
   * **IP adresa:** **`91.239.200.50`** (server Českého hostingu pro obsluhu přesměrování).
   * AAAA záznam doplní hosting automaticky (`2001:67c:e94:0:1:5bef:c832:1`).

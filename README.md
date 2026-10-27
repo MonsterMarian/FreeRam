@@ -1,13 +1,13 @@
-# ⚡ FreeRam – Cloud & Webhosting Manuály
+# FreeRam – Cloud & Webhosting Manuály
 
 > Kompaktní návody na bezplatný cloud (Azure), hosting statických webů (Cloudflare Pages), správu DNS a CI/CD.  
 > Styl: Pouze odrážky. Každé zbytečné slovo odebráno.
 
 ---
 
-## 📚 Obsah repozitáře
+## Obsah repozitáře
 
-### 1. [☁️ AZURE.md](./AZURE.md)
+### 1. [AZURE.md](./AZURE.md)
 * **Student vs Standard:** Účet bez platební karty (100 $/rok) vs 30denní trial (200 $ kredit + 12 měsíců free).
 * **Free VM:** `B2ats_v2` / `B2pts_v2` v **Sweden Central** – portál i CLI, se screenshoty.
 * **Chyby:** `NotAvailableForSubscription` (Microsoft.Compute, zakázané regiony), `AllocationFailed`.
@@ -15,7 +15,7 @@
 * **Pasti na peníze:** Osiřelé disky, zapomenuté IP, limit 750 hodin, placená `B2ts_v2`.
 * **Záchranná brzda:** Nastavení Budget Alertu na 1 $ proti nechtěným platbám.
 
-### 2. [🌐 WEBHOSTING.md](./WEBHOSTING.md)
+### 2. [WEBHOSTING.md](./WEBHOSTING.md)
 * **Výběr hostingu:** Proč Cloudflare Pages drtí Render, Koyeb a Vercel (0 s cold start, Three.js rychlost).
 * **Nasazení z GitHubu:** Konfigurace buildu pro Vite a React.
 * **DNS (Český hosting):** 
