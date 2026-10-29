@@ -19,8 +19,14 @@
 ### 2. [WEBHOSTING.md](./WEBHOSTING.md)
 * **Výběr hostingu:** Proč Cloudflare Pages drtí Render, Koyeb a Vercel (0 s cold start, Three.js rychlost).
 * **Nasazení z GitHubu:** Konfigurace buildu pro Vite a React.
-* **DNS (Český hosting):** 
-  * CNAME pro `www` na Cloudflare.
-  * A záznam na `91.239.200.50` s prázdnou subdoménou pro 301 přesměrování.
+* **DNS (Cloudflare Authoritative DNS):** 
+  * Delegace nameserverů na Cloudflare.
+  * CNAME pro `www` i apex (`@`) přes CNAME Flattening.
 * **CI/CD & Náhledy:** Automatický deploy pro `main` + preview linky pro větve (např. `homepage`).
 * **Backend & DB:** Pages Functions + bezplatná SQL databáze Cloudflare D1.
+
+### 3. [EMAIL.md](./EMAIL.md)
+* **Architektura:** Cloudflare Email Routing (příjem) + Brevo SMTP (odesílání).
+* **Příjem zdarma:** Nastavení forwarding pravidel a cílové schránky v Cloudflare.
+* **Odesílání z domény:** Brevo účet (300 mailů/den free) + SPF/DKIM podpisy proti spamu.
+* **Propojení do schránky:** Nastavení „Odesílat poštu jako“ v Gmailu.
