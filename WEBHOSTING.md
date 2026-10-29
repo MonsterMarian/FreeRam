@@ -41,31 +41,25 @@
 
 ---
 
-## 3. Nastavení DNS (Český hosting / hosting.cz)
+## 3. Nastavení DNS (Cloudflare Authoritative DNS)
 
-Cíl: Propojit `www.marianvystavel.cz` s Cloudflare a `marianvystavel.cz` (bez www) přesměrovat na `www`.
+Cíl: Kompletní správa DNS a SSL pod Cloudflare pro obě verze domény (`marianvystavel.cz` i `www.marianvystavel.cz`).
 
-* **1. Propojení subdomény `www` (v Cloudflare):**
-  * Projekt → *Custom domains* → *Set up a custom domain*.
-  * Zadat `www.marianvystavel.cz`.
-  * Zvolit **My DNS provider** → **Begin CNAME setup**.
+* **1. Nameservery (u registrátora Český hosting):**
+  * CZ.NIC NSSET nastaven na Cloudflare:
+    * `adrian.ns.cloudflare.com`
+    * `arnold.ns.cloudflare.com`
+  * DNSSEC byl před změnou deaktivován.
+  * Záznamy v administraci Českého hostingu jsou nyní irelevantní (veškeré DNS řídí Cloudflare).
 
-* **2. Nastavení CNAME záznamu (na hosting.cz):**
-  * Sekce **CNAME záznamy** → tužka u `www.marianvystavel.cz`.
-  * Typ: `CNAME`
-  * Cíl: `portfolio-mo4.pages.dev` (tvoje Pages URL).
-  * Uložit.
+* **2. Cloudflare Pages Custom Domains:**
+  * `www.marianvystavel.cz` → CNAME na `portfolio-mo4.pages.dev` (Active • SSL).
+  * `marianvystavel.cz` (apex) → CNAME `@` na `portfolio-mo4.pages.dev` přes CNAME Flattening (Active • SSL).
 
-* **3. Nastavení přesměrování pro verzi bez www (na hosting.cz):**
-  * Sekce **Alias, přesměrování** → **Přesměrování webu**.
-  * Cílová URL: `https://www.marianvystavel.cz`
-  * Typ: 301 trvalé.
-
-* **4. Nastavení A záznamu pro doménu bez www (na hosting.cz):**
-  * Sekce **A/AAAA záznamy** → zelené tlačítko **+ Přidat A záznam**.
-  * **(Sub)doména:** Nechat **ÚPLNĚ PRÁZDNÉ** (nevepisovat název domény, jinak vznikne duplikát!).
-  * **IP adresa:** **`91.239.200.50`** (server Českého hostingu pro obsluhu přesměrování).
-  * AAAA záznam doplní hosting automaticky (`2001:67c:e94:0:1:5bef:c832:1`).
+* **3. Výsledek:**
+  * Obě adresy (s `www` i bez `www`) fungují okamžitě na celosvětové CDN.
+  * Automatické, bezplatné obnovování SSL certifikátů.
+  * Žádné chyby prošlých certifikátů z parking serverů.
 
 ---
 
